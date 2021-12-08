@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import DesiredCapabilities
 import os
-from fakebro.user_account import login
+from instafake.utils.user_account import login
 
 
 class BrowserDriverInit():

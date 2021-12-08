@@ -6,10 +6,10 @@ def crawl_followers(browser,acct):
     current_url ='https://www.instagram.com/'
     browser.get(f'{current_url}{acct}')
     followers = set()
-    follower_count = browser.find_element_by_xpath("//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[2]/a/span").get_attribute('innerHTML')
+    follower_count = browser.find_element_by_xpath("//div[@id='react-root']//ul[@class='k9GMp ']/li[2]/a/span").get_attribute('innerHTML')
 
 
-    elems = browser.find_element_by_xpath("//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[2]/a")
+    elems = browser.find_element_by_xpath("//div[@id='react-root']//ul[@class='k9GMp ']/li[2]/a")
     elems.click()
     sleep(8)
     browser.execute_script("document.getElementsByClassName('isgrP')[0].scrollTo(0,1000)")
@@ -123,24 +123,24 @@ def audit_followers(browser, follower_list):
         is_private = check_private(browser)
         try:
             post_count = browser.find_element_by_xpath(
-                "//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[1]/span").get_attribute(
+                "//div[@id='react-root']//ul[@class='k9GMp ']/li[1]/span").get_attribute(
                 'innerText').split(' ')[0]
         except Exception as ex:
             print("test")
         if is_private:
 
             following_count =browser.find_element_by_xpath(
-            "//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[2]/span").get_attribute(
+            "//div[@id='react-root']//ul[@class='k9GMp ']/li[2]/span").get_attribute(
             'innerText').split(' ')[0]
             follower_count = browser.find_element_by_xpath(
-            "//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[3]/span").get_attribute(
+            "//div[@id='react-root']//ul[@class='k9GMp ']/li[3]/span").get_attribute(
             'innerText').split(' ')[0]
         else:
             following_count = browser.find_element_by_xpath(
-                "//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[3]/a/span").get_attribute(
+                "//div[@id='react-root']//ul[@class='k9GMp ']/li[3]/a/span").get_attribute(
                 'innerText').split(' ')[0]
             follower_count = browser.find_element_by_xpath(
-                "//div[@id='react-root']//header[@class='vtbgv ']//ul[@class='k9GMp ']/li[2]/a/span").get_attribute(
+                "//div[@id='react-root']//ul[@class='k9GMp ']/li[2]/a/span").get_attribute(
                 'innerText').split(' ')[0]
         post_count, following_count, follower_count = normalize_follower_count(post_count,following_count,follower_count)
         score = acct_heuristics(browser,post_count, following_count, follower_count )

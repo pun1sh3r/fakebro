@@ -48,7 +48,7 @@ def login(browser):
         print('login failed')
         return
 
-    with open(f"{os.environ['COOKIE_PATH']}cookies-{username}.pkl", 'wb') as cookie_jar:
+    with open(f"{os.environ['COOKIE_PATH']}cookies-{login_username}.pkl", 'wb') as cookie_jar:
         cookies = browser.get_cookies()
         for cookie in cookies:
             if isinstance(cookie.get('expiry'), float):
