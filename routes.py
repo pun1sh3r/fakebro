@@ -3,8 +3,9 @@ from utils.chromedriverinit import BrowserDriverInit
 from utils.data_extractor import crawl_followers,audit_followers
 from flask import request, render_template, flash, redirect, url_for
 from werkzeug.urls import url_parse
-from forms import SearchForm
+from forms import SearchForm, RegistrationForm, LoginForm
 from collections import defaultdict
+from models import User
 
 
 
@@ -21,3 +22,15 @@ def index():
             return render_template('index.html',form=searchform,ig_username=ig_username,follower_count=followers,fake_count=len(fake_followers))
 
     return render_template('index.html', form=searchform,follower_count='100',fake_count='10')
+
+@app.route('/register', methods=['GET','POST'])
+def register():
+    form = RegistrationForm(csrf_enabled=False)
+    if form.validate_on_submit():
+        user = User(email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+    return render_template('register.html',title='Register',form=form)
+
+

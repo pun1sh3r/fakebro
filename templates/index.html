@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<style>
-  .iframe-container {
-		text-align:center;
-  		width:100%;
-  }
-</style>
 
+{% extends "base.html" %}
 {% block content %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>fakebro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -52,38 +39,6 @@
 
 
 <body>
-
-<!-- Navbar Component -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><img src="../static/logo.png" width="60"   ></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Signup</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
-
-
-      </ul>
-
-    </div>
-  </nav>
-
 
 <div class="jumbotron" style="background-color: snow">
     <div class="text-center text-black ">
@@ -126,21 +81,4 @@
      </div>
     </div>
 
-
-
-
-
-
-        <!-- Footer -->
-<div class="footer d-flex justify-content-center align-items-center ">
-    <span id="bottom">
-        <hr>
-        <p>
-          2021 instafake
-       </p>
-    </span>
-</div>
 {% endblock %}
-</body>
-
-</html>

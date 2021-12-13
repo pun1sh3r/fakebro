@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from utils.chromedriverinit import BrowserDriverInit
 
 app = Flask(__name__)
 app.secret_key = 'secretkeyhardcoded'
