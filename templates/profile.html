@@ -1,0 +1,531 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src = "https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript">
+         $(document).ready(function() {
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false
+            };
+            var title = {
+               text: ''
+            };
+            var tooltip = {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            var plotOptions = {
+               pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  
+                  dataLabels: {
+                     enabled: true,
+                     format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                     style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                        'black'
+                     },
+                     showInLegend : true
+                  }
+               }
+            };
+            var series = [{
+               type: 'pie',
+               name: 'Distribution by numbers',
+               data: [
+                  ['Very Good',   45.0],
+                  ['Medium',       26.8],
+                  {
+                     name: 'Very Bad',
+                     y: 12.8,
+                     sliced: true,
+                     selected: true
+                  },
+                  
+                  ['Good',    8.5],
+                  ['Bad',     6.2],
+                  
+               ]
+            }];
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#Distchart').highcharts(json);
+         });
+         
+         $(document).ready(function() {
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false
+            };
+            var title = {
+               text: ''
+            };
+            var tooltip = {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            var plotOptions = {
+               pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  
+                  dataLabels: {
+                     enabled: true,
+                     format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                     style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                        'black'
+                     }
+                  }
+               }
+            };
+            var series = [{
+               type: 'pie',
+               name: 'Follower Statistics',
+               data: [
+                  ['total followers',   45.0],
+                  ['Fake followers',       26.8],
+                  
+                  
+                  
+               ]
+            }];
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#qFollowers').highcharts(json);
+         });
+         
+          $(document).ready(function() {
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false
+            };
+            var title = {
+               text: ''
+            };
+            var tooltip = {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            var plotOptions = {
+               pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  
+                  dataLabels: {
+                     enabled: true,
+                     format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                     style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                        'black'
+                     }
+                  }
+               }
+            };
+            var series = [{
+               type: 'pie',
+               name: 'Follower Statistics',
+               data: [
+                  ['total followers',   45.0],
+                  ['Fake followers',       26.8],
+                  
+                  
+                  
+               ]
+            }];
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#likes').highcharts(json);
+         });
+          
+          $(document).ready(function() {
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false
+            };
+            var title = {
+               text: ''
+            };
+            var tooltip = {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            var plotOptions = {
+               pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  
+                  dataLabels: {
+                     enabled: true,
+                     format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                     style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                        'red'
+                     }
+                  }
+               }
+            };
+            var series = [{
+               type: 'pie',
+               name: 'Gender',
+               data: [
+                  ['Male',   45.0],
+                  ['Female',       26.8],
+                  
+                  
+                  
+               ]
+            }];
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#comments').highcharts(json);
+         });
+         
+         $(document).ready(function() {
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false
+            };
+            var title = {
+               text: ''
+            };
+            var tooltip = {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            var plotOptions = {
+               pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  colors: ['#63ADF2','#FF4D80'],
+                  dataLabels: {
+                     enabled: true,
+                     format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                     style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                        'black'
+                     }
+                  }
+               }
+            };
+            var series = [{
+               type: 'pie',
+               name: 'Gender',
+               data: [
+                  ['Male',   45.0],
+                  ['Female',       26.8],
+                  
+                  
+                  
+               ]
+            }];
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#gender').highcharts(json);
+         });
+         
+         $(document).ready(function() {
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: false
+            };
+            var title = {
+               text: ''
+            };
+            var tooltip = {
+               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            var plotOptions = {
+               pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  
+                  
+                  dataLabels: {
+                     enabled: true,
+                     format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                     style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                        'black'
+                     }
+                  }
+               }
+            };
+            var series = [{
+               type: 'bar',
+               name: 'comments',
+               data: [
+                  ['True',   45.0],
+                  ['Suspicious',       26.8],
+                  
+                  
+                  
+               ]
+            }];
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#age').highcharts(json);
+         });
+         
+         
+         
+      </script>
+    
+</head>
+
+
+<body>
+   <div class="container">
+      <div class="row">
+         <div class='col-md-8'>
+            <br>
+            <h1 class=" text-black-50 font-weight-bold  ">PROFILE</h1>
+            <br>
+            <div class="card border-0" >
+               <div class="card-content bg-light">
+                  <div class="row  ">
+                     <div class="col-md-4" >
+                     <a href="https://www.instagram.com/amandacerny">
+                        <figure class="image is-24x24">
+                           <img class="is-rounded" src="../static/instagram.png">
+                        </figure>
+                        <figure class="image is-128x128">
+                           <img class="is-rounded " src="https://pbs.twimg.com/profile_images/1401055960618213378/h3gabYzI.jpg">
+                        </figure>
+                     </a>
+                     </div>
+                  <div class="col-md-8 ">
+                     <h1 class="title">
+                        <a href="https://www.instagram.com/amandacerny">@amandacerny</a>
+                     </h1>
+                     <p  class="profile-description">Amanda 𝕮𝖊𝖗𝖓𝖞</p>
+                     <p _ class="profile-description"> Generated on Jun 16, 2020 </p>
+                     <br>
+                     <div class="row">
+                        <div class="col border-right">
+                           <h1 class="font-weight-bold">2.1k </h1>
+                           <p>Posts</p>
+                        </div>
+                        <div class="col border-right">
+                           <h1 class="font-weight-bold">12k </h1>
+                           <p>Followers</p>
+                        </div>
+                        <div class="col">
+                           <h1 class="font-weight-bold">500 </h1>
+                           <p>Following</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+          <div class="col-md-4 ">
+         <br>
+         <h1 class=" text-black-50 font-weight-bold">SCORE</h1>
+         <br>
+         <div class="card">
+            <div class="card-content bg-light">
+               <div class="content">
+                  <h1>84/100</h1>
+                  <progress class="progress is-primary" value="90" max="100">90%</progress>
+                  <div class="row">
+                     <div class="col border-right">
+                        <p class="font-weight-bold">2.32% </p>
+                        <p class="h6">ER</p>
+                     </div>
+                     <div class="col border-right">
+                        <p class="font-weight-bold">0.76% </p>
+                        <p class="h6">TER</p>
+                     </div>
+                     <div class="col">
+                        <p class="font-weight-bold">1.4k</p>
+                        <p class="h6">LF</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+       </div>
+       <br>
+      <div class="row">
+         <div class="col-md">
+            <h1 class="text-black-50 font-weight-bold">RELIABILITY</h1>
+         </div>
+      </div>
+       <br>
+      <div class="row bg-light">
+         <div class="col-md">
+            <div class="tabs is-medium">
+              <ul>
+                <li class="is-active"><a>Followers</a></li>
+                <li><a>Active Followers</a></li>
+                <li><a>PRV & Business</a></li>
+              </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6 border-right">
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="../static/likes.png">
+                </div>
+                 <div class="col-md-5">
+                    <p class="h6 font-weight-bold">Quality Followers: 60.30%</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="../static/quality.png">
+                </div>
+                 <div class="col-md-5">
+                    <p class="h6 font-weight-bold">Quality Distribution</p>
+                </div>
+            </div>
+        </div>
+      </div>
+       
+       <div class="row">
+            <div class="col-md-6 border-right">
+                <div id = "qFollowers" style = "width: 560px; height: 400px; margin: 0 auto"></div>
+            </div>
+            <div class="col-md-6">
+                <div id = "Distchart" style = "width: 530px; height: 400px; margin: 0 auto"></div>
+            </div>
+       
+       </div>
+       
+       
+       <div class="row">
+         <div class="col-md">
+            <h1 class="text-black-50 font-weight-bold">TRUE LIKES AND COMMENTS</h1>
+         </div>
+      </div>
+       <br>
+      <div class="row">
+        <div class="col-md-6 border-right ">
+            <div class="row">
+                <div class="col-md-1 ">
+                    <img src="../static/likes.png">
+                </div>
+                 <div class="col-md-5">
+                    <p class="h6 font-weight-bold">Likes</p>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="../static/Comments.png">
+                </div>
+                 <div class="col-md-3">
+                    <p class="h6 font-weight-bold">Comments</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+        <div id = "likes" style = "width: 560px; height: 400px; margin: 0 auto"></div>
+        </div>
+        <div class="col-md-6 border-left">
+        <div id = "comments" style = "width: 480px; height: 400px; margin: 0 auto"></div>
+        </div>
+      </div>
+       <br>
+      <div class="row">
+         <div class="col-md">
+            <h1 class="text-black-50 font-weight-bold">PROFILE DETAILS</h1>
+         </div>
+      </div>
+       <br>
+      <div class="row">
+        <div class="col-md-6 border-right ">
+            <div class="row">
+                <div class="col-md-1 ">
+                    <img src="../static/gender.png">
+                </div>
+                 <div class="col-md-5">
+                    <p class="h6 font-weight-bold">Gender</p>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="../static/age.png">
+                </div>
+                 <div class="col-md-3">
+                    <p class="h6 font-weight-bold">Age</p>
+                </div>
+            </div>
+        </div>
+      </div>
+       <div class="row">
+            <div class="col-md-6 border-right">
+                <div id = "gender" style = "width: 560px; height: 400px; margin: 0 auto"></div>
+            </div>
+            <div class="col-md-6">
+                <div id = "age" style = "width: 530px; height: 400px; margin: 0 auto"></div>
+            </div>
+       
+       </div>
+      
+      
+       
+      
+      
+      
+      
+      
+      
+      
+   </div>
+   
+
+
+   
+   </div>
+</body>
+{% endblock %}

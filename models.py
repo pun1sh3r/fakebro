@@ -22,11 +22,20 @@ class User(UserMixin,db.Model):
         return check_password_hash(self.password_hash,password)
 
 
+class Comments(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    post_id = db.Column(db.String(20),index=True,unique=True)
+    like_count = db.Column(db.Integer,unique=True)
+    comment_count = db.Column(db.Integer,unique=True)
+    profile_id = db.Column(db.Integer, db.ForeignKey('handle.handle_id'))
+
 class Handle(db.Model):
     __tablename__ = "handle"
     handle_id = db.Column(db.Integer, primary_key=True)
     ig_handle = db.Column(db.String(100),index=True,unique=True)
     ig_follower_count = db.Column(db.Integer)
+    ig_followed_count = db.Column(db.Integer)
+
     ig_fake_follower = db.relationship("FakeFollower",secondary=rel,backref=db.backref('ig_handle', lazy='dynamic' ))
 
     def __repr__(self):
@@ -35,8 +44,8 @@ class Handle(db.Model):
 class FakeFollower(db.Model):
     __tablename__ = "fakefollower"
     follower_id = db.Column(db.Integer, primary_key=True)
-    fake_username = db.Column(db.String(100),index=True)
-    score = db.Column(db.Integer)
+    follower_handle = db.Column(db.String(100),index=True)
+    follower_score = db.Column(db.Integer)
     def __repr__(self):
         return f'{self.fake_username - self.score - self.followed_acct}'
 

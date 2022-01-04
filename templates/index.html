@@ -6,33 +6,36 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-
-
-				[{label: 'followers', type: 'string'},
-   {label: 'fake followers', type: 'number'},
-   {type: 'string', role: 'annotation'}],
-  ['followers', {{ follower_count }},  'Annotated'],
-  ['Fake followers', {{ fake_count }},  'Annotated'],
-
-
-
-
-
-        ]);
-
-        var options = {
-
-          is3D: true,
-
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
+        google.charts.load("current", {packages: ["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                
+                
+                [{label: 'followers', type: 'string'},
+                    {label: 'fake followers', type: 'number'},
+                    {type: 'string', role: 'annotation'}],
+                ['followers', {{follower_count}
+        },
+            'Annotated'
+        ],
+            ['Fake followers', {{fake_count}
+        },
+            'Annotated'
+        ],
+        ])
+            ;
+            
+            var options = {
+                
+                is3D: true,
+                
+            };
+            
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
     </script>
 
 </head>
