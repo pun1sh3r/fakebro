@@ -1,8 +1,11 @@
-from app import app, db
+from app import db
 import datetime
 from flask_login import UserMixin, LoginManager, login_required, login_user, current_user
 from werkzeug.security import generate_password_hash,check_password_hash
 from datetime import datetime
+import rq
+import redis
+from flask import current_app, url_for
 
 rel = db.Table('rel',
     db.Column('handle_id',db.Integer,db.ForeignKey('handle.handle_id')),
@@ -49,3 +52,20 @@ class FakeFollower(db.Model):
     def __repr__(self):
         return f'{self.fake_username - self.score - self.followed_acct}'
 
+class Task(db.Model):
+    id = db.Column(db.String(36), primary_key=True)
+    name = db.Column(db.String(128), index=True)
+    description = db.Column(db.String(128))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    complete = db.Column(db.Boolean, default=False)
+
+    def get_rq_job(self):
+        try:
+            rq_job = rq.job.Job.fetch(self.id, connection=current_app.redis)
+        except (redis.exceptions.RedisError, rq.exceptions.NoSuchJobError):
+            return None
+        return rq_job
+
+    def get_progress(self):
+        job = self.get_rq_job()
+        return job.meta.get('progress', 0) if job is not None else 100

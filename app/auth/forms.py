@@ -3,10 +3,6 @@ from wtforms import StringField, SubmitField,BooleanField, PasswordField
 from wtforms.validators import DataRequired, NumberRange, Email, EqualTo
 
 
-class SearchForm(FlaskForm):
-    ig_username =StringField('ig_username',validators=[DataRequired()])
-    submit = SubmitField("Go")
-
 class RegistrationForm(FlaskForm):
     # add email field here:
     email = StringField("Email", validators=[DataRequired(), Email()])
@@ -23,3 +19,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember me')
     submit = SubmitField('Login')
 
+class ResetPassForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
